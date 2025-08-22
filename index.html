@@ -49,8 +49,8 @@
                 <div class="cta">
                     <a class="light" href="https://amazonconectores.abacusai.app/" target="_blank" rel="noopener">Ver
                         Prévia do Site</a>
-                    <button class="light" onclick="scrollToComparison()">Ver Comparativo</button>
-                    <button onclick="scrollToChart()">Ver Gráfico de Economia</button>
+                    <!-- <button class="light" onclick="scrollToComparison()">Ver Comparativo</button> -->
+                    <!-- <button onclick="scrollToChart()">Ver Gráfico de Economia</button> -->
                 </div>
             </div>
 
@@ -187,86 +187,301 @@
 
 
         <section class="plans-section" style="padding: 40px 20px; background: #f9fafb;">
+            <!-- Symbols (SVG) -->
+            <svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+                <symbol id="icon-check" viewBox="0 0 24 24">
+                    <path
+                        d="M9 16.17l-3.88-3.88a1 1 0 10-1.41 1.41l4.59 4.59a1 1 0 001.41 0l10-10a1 1 0 10-1.41-1.41L9 16.17z">
+                    </path>
+                </symbol>
+                <symbol id="icon-x" viewBox="0 0 24 24">
+                    <path
+                        d="M18.3 5.7a1 1 0 00-1.4 0L12 10.59 7.1 5.7A1 1 0 105.7 7.1L10.59 12 5.7 16.9a1 1 0 101.4 1.4L12 13.41l4.9 4.89a1 1 0 001.4-1.4L13.41 12l4.89-4.9a1 1 0 000-1.4z">
+                    </path>
+                </symbol>
+            </svg>
+
             <div style="text-align: center; margin-bottom: 40px;">
-                <h2 style="font-size: 28px; font-weight: 700; color: #111827;">📦 Planos de E-commerce e ROI Estimado
-                </h2>
-                <p style="color: #4b5563; font-size: 16px;">Do básico ao completo: escolha o plano que mais potencializa
-                    suas vendas</p>
+                <h2 style="font-size: 28px; font-weight: 700; color: #111827;">📊 Comparativo de Planos</h2>
+                <p style="color: #4b5563; font-size: 16px;">Veja lado a lado todos os recursos inclusos em cada plano
+                </p>
             </div>
 
-            <div class="plans-grid"
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; align-items: start;">
+            <div style="overflow-x:auto;">
+                <table
+                    style="width:100%; border-collapse:collapse; text-align:center; background:#fff; border-radius:12px; overflow:hidden;">
+                    <thead>
+                        <tr style="background:#f3f4f6;">
+                            <th style="padding:16px; text-align:left; font-weight:600; color:#374151;">Benefícios</th>
+                            <th style="padding:16px; color:#ef4444; font-weight:700;">💻 Básico<br><span
+                                    style="font-size:14px;">R$ 890/mês</span></th>
+                            <th style="padding:16px; color:#1d4ed8; font-weight:700;">⚙️ Intermediário<br><span
+                                    style="font-size:14px;">R$ 1.290/mês (+5% OFF Setup)</span></th>
+                            <th style="padding:16px; color:#065f46; font-weight:700;">🚀 Premium<br><span
+                                    style="font-size:14px;">R$ 1.590/mês (+15% OFF Setup)</span></th>
+                        </tr>
+                    </thead>
+                    <tbody style="font-size:14px; color:#374151;">
+                        <tr>
+                            <td style="padding:12px; text-align:left;">Hospedagem</td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#10b981;">
+                                    <svg width="18" height="18" role="img" aria-label="Incluído">
+                                        <use href="#icon-check" />
+                                    </svg>
+                                    <span>Completa</span>
+                                </span>
+                            </td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#10b981;">
+                                    <svg width="18" height="18" role="img" aria-label="Incluído">
+                                        <use href="#icon-check" />
+                                    </svg>
+                                    <span>Completa</span>
+                                </span>
+                            </td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#10b981;">
+                                    <svg width="18" height="18" role="img" aria-label="Incluído">
+                                        <use href="#icon-check" />
+                                    </svg>
+                                    <span>Premium + 24/7</span>
+                                </span>
+                            </td>
+                        </tr>
 
-                <!-- Plano Básico -->
-                <div class="plan-card"
-                    style="background: #fff; border-radius: 12px; padding: 24px; text-align: center; border: 1px solid #e5e7eb; position: relative;">
-                    <h3 style="font-size: 20px; font-weight: 700; color: #374151; margin-bottom: 12px;">💻 Básico</h3>
-                    <div style="font-size: 22px; font-weight: 700; color: #ef4444; margin-bottom: 12px;">R$ 890/mês
-                    </div>
-                    <ul
-                        style="list-style: none; padding: 0; text-align: left; font-size: 14px; color: #6b7280; margin-bottom: 16px;">
-                        <li>✅ Hospedagem Completa</li>
-                        <li>✅ Integração ERP</li>
-                        <li>❌ Sem suporte incluso</li>
-                        <li>❌ Sem relatórios ou melhorias</li>
-                        <li>❌ Sem novas funcionalidades</li>
-                    </ul>
-                    <!-- <div style="font-size: 13px; color: #4b5563;">ROI potencial: +10% em vendas</div> -->
+                        <tr style="background:#f9fafb;">
+                            <td style="padding:12px; text-align:left;">Integração ERP</td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#10b981;">
+                                    <svg width="18" height="18" role="img" aria-label="Incluído">
+                                        <use href="#icon-check" />
+                                    </svg>
+                                    <span>Básica</span>
+                                </span>
+                            </td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#10b981;">
+                                    <svg width="18" height="18" role="img" aria-label="Incluído">
+                                        <use href="#icon-check" />
+                                    </svg>
+                                    <span>Completa</span>
+                                </span>
+                            </td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#10b981;">
+                                    <svg width="18" height="18" role="img" aria-label="Incluído">
+                                        <use href="#icon-check" />
+                                    </svg>
+                                    <span>Avançada + Automação</span>
+                                </span>
+                            </td>
+                        </tr>
 
-                    <div
-                        style="position: absolute; right: -30px; top: 50%; transform: translateY(-50%); font-size: 32px; color: #6b7280;">
-                        ➡️</div>
-                </div>
+                        <tr>
+                            <td style="padding:12px; text-align:left;">Suporte Técnico</td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#10b981;">
+                                    <svg width="18" height="18" role="img" aria-label="Incluído">
+                                        <use href="#icon-check" />
+                                    </svg>
+                                    <span>Básico (5h/mês)</span>
+                                </span>
+                            </td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#10b981;">
+                                    <svg width="18" height="18" role="img" aria-label="Incluído">
+                                        <use href="#icon-check" />
+                                    </svg>
+                                    <span>Básico (5h/mês)</span>
+                                </span>
+                            </td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#10b981;">
+                                    <svg width="18" height="18" role="img" aria-label="Incluído">
+                                        <use href="#icon-check" />
+                                    </svg>
+                                    <span>Avançado (10h/mês)</span>
+                                </span>
+                            </td>
+                        </tr>
 
-                <!-- Plano Intermediário -->
-                <div class="plan-card"
-                    style="background: #f0f9ff; border: 2px solid #3b82f6; border-radius: 12px; padding: 24px; text-align: center; box-shadow: 0 4px 8px rgba(59,130,246,0.2); position: relative;">
-                    <h3 style="font-size: 20px; font-weight: 700; color: #1d4ed8; margin-bottom: 12px;">⚙️ Intermediário
-                    </h3>
-                    <div style="font-size: 22px; font-weight: 700; color: #1d4ed8; margin-bottom: 12px;">R$ 1.290/mês
-                        <span style="font-size:14px; color:#2563eb;">(+5% OFF no Setup)</span>
-                    </div>
-                    <ul
-                        style="list-style: none; padding: 0; text-align: left; font-size: 14px; color: #1e40af; font-weight: 500; margin-bottom: 16px;">
-                        <li>✅ Hospedagem Completa</li>
-                        <li>✅ Suporte técnico básico (5h/mês)</li>
-                        <li>✅ Integração com gateways de pagamento</li>
-                        <li>❌ Sem relatórios detalhados</li>
-                        <li>❌ Melhorias contínuas limitadas</li>
-                    </ul>
-                    <!-- <div style="font-size: 13px; color: #1e40af;">ROI potencial: +25% em vendas</div> -->
+                        <tr style="background:#f9fafb;">
+                            <td style="padding:12px; text-align:left;">Relatórios & Dashboards</td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#ef4444;">
+                                    <svg width="18" height="18" role="img" aria-label="Não incluído">
+                                        <use href="#icon-x" />
+                                    </svg>
+                                    <span>—</span>
+                                </span>
+                            </td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#ef4444;">
+                                    <svg width="18" height="18" role="img" aria-label="Não incluído">
+                                        <use href="#icon-x" />
+                                    </svg>
+                                    <span>—</span>
+                                </span>
+                            </td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#10b981;">
+                                    <svg width="18" height="18" role="img" aria-label="Incluído">
+                                        <use href="#icon-check" />
+                                    </svg>
+                                    <span>Completos</span>
+                                </span>
+                            </td>
+                        </tr>
 
-                    <div
-                        style="position: absolute; right: -30px; top: 50%; transform: translateY(-50%); font-size: 32px; color: #6b7280;">
-                        ➡️</div>
-                </div>
+                        <tr>
+                            <td style="padding:12px; text-align:left;">Melhorias Contínuas + Novas Funcionalidades</td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#ef4444;">
+                                    <svg width="18" height="18" role="img" aria-label="Não incluído">
+                                        <use href="#icon-x" />
+                                    </svg>
+                                    <span>—</span>
+                                </span>
+                            </td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#f59e0b;">
+                                    <svg width="18" height="18" role="img" aria-label="Parcial">
+                                        <use href="#icon-check" />
+                                    </svg>
+                                    <span>Limitadas</span>
+                                </span>
+                            </td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#10b981;">
+                                    <svg width="18" height="18" role="img" aria-label="Incluído">
+                                        <use href="#icon-check" />
+                                    </svg>
+                                    <span>Incluídas</span>
+                                </span>
+                            </td>
+                        </tr>
 
-                <!-- Plano Premium -->
-                <div class="plan-card featured"
-                    style="background: #ecfdf5; border: 2px solid #10b981; border-radius: 12px; padding: 24px; text-align: center; box-shadow: 0 4px 12px rgba(16,185,129,0.25);">
-                    <h3 style="font-size: 20px; font-weight: 700; color: #065f46; margin-bottom: 12px;">🚀 Premium
-                        Completo</h3>
-                    <div style="font-size: 22px; font-weight: 700; color: #065f46; margin-bottom: 12px;">R$ 1.590/mês
-                        <span style="font-size:14px; color:#10b981;">(+15% OFF no Setup)</span>
-                    </div>
-                    <ul
-                        style="list-style: none; padding: 0; text-align: left; font-size: 14px; color: #065f46; font-weight: 500; margin-bottom: 16px;">
-                        <li>✅ Hospedagem premium + monitoramento 24/7</li>
-                        <li>✅ Suporte técnico avançado (10h/mês)</li>
-                        <li>✅ Relatórios completos e dashboards</li>
-                        <li>✅ Melhorias contínuas + novas funcionalidades</li>
-                        <li>✅ Integração ERP + automações de marketing</li>
-                        <li>✅ CRM Customizados para setor de Vendas</li>
-                        <li>✅ Descontos Especiais nas Soluções extras: app conferência, busca por imagem, app agendamento</li>
-                        <li>✅ Descontos nas Soluções com IA: chatbots, agentes de IA, recomendação de produtos</li>
-                    </ul>
-                    <!-- <div style="font-size: 13px; color: #065f46; font-weight: 500;">ROI potencial: +50% a +80% em
-                        vendas, mais eficiência e escalabilidade</div> -->
-                </div>
+                        <tr style="background:#f9fafb;">
+                            <td style="padding:12px; text-align:left;">Integrações de Pagamento</td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#10b981;">
+                                    <svg width="18" height="18" role="img" aria-label="Incluído">
+                                        <use href="#icon-check" />
+                                    </svg>
+                                    <span>Básico</span>
+                                </span>
+                            </td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#10b981;">
+                                    <svg width="18" height="18" role="img" aria-label="Incluído">
+                                        <use href="#icon-check" />
+                                    </svg>
+                                    <span>Completo</span>
+                                </span>
+                            </td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#10b981;">
+                                    <svg width="18" height="18" role="img" aria-label="Incluído">
+                                        <use href="#icon-check" />
+                                    </svg>
+                                    <span>Completo + Automação</span>
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding:12px; text-align:left;">CRM Básico (Gestão de Conversas) Customizado</td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#ef4444;">
+                                    <svg width="18" height="18" role="img" aria-label="Não incluído">
+                                        <use href="#icon-x" />
+                                    </svg>
+                                    <span>—</span>
+                                </span>
+                            </td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#ef4444;">
+                                    <svg width="18" height="18" role="img" aria-label="Não incluído">
+                                        <use href="#icon-x" />
+                                    </svg>
+                                    <span>—</span>
+                                </span>
+                            </td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#10b981;">
+                                    <svg width="18" height="18" role="img" aria-label="Incluído">
+                                        <use href="#icon-check" />
+                                    </svg>
+                                    <span>Incluso</span>
+                                    <!-- <span>Com desconto</span> -->
+                                    
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr style="background:#f9fafb;">
+                            <td style="padding:12px; text-align:left;">Soluções Extras (conferência, busca por imagem,
+                                agendamento)</td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#ef4444;">
+                                    <svg width="18" height="18" role="img" aria-label="Não incluído">
+                                        <use href="#icon-x" />
+                                    </svg>
+                                    <span>—</span>
+                                </span>
+                            </td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#ef4444;">
+                                    <svg width="18" height="18" role="img" aria-label="Não incluído">
+                                        <use href="#icon-x" />
+                                    </svg>
+                                    <span>—</span>
+                                </span>
+                            </td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#10b981;">
+                                    <svg width="18" height="18" role="img" aria-label="Incluído">
+                                        <use href="#icon-check" />
+                                    </svg>
+                                    <span>Com desconto</span>
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding:12px; text-align:left;">Soluções com IA (chatbots, agentes,
+                                recomendações)</td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#ef4444;">
+                                    <svg width="18" height="18" role="img" aria-label="Não incluído">
+                                        <use href="#icon-x" />
+                                    </svg>
+                                    <span>—</span>
+                                </span>
+                            </td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#ef4444;">
+                                    <svg width="18" height="18" role="img" aria-label="Não incluído">
+                                        <use href="#icon-x" />
+                                    </svg>
+                                    <span>—</span>
+                                </span>
+                            </td>
+                            <td style="padding:12px;">
+                                <span style="display:inline-flex;align-items:center;gap:6px;color:#10b981;">
+                                    <svg width="18" height="18" role="img" aria-label="Incluído">
+                                        <use href="#icon-check" />
+                                    </svg>
+                                    <span>Com desconto</span>
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-
-          
         </section>
+
 
 
 
