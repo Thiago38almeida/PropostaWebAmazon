@@ -8,376 +8,10 @@
     <meta name="description"
         content="Proposta comercial de desenvolvimento de e-commerce Amazon Conetores — Plano único com desconto progressivo.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="./styles.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --green: #2e7d32;
-            --yellow: #ffb300;
-            --gray: #9e9e9e;
-            --bg: #f7f9fb;
-            --card: #ffffff;
-            --text: #1b1b1b;
-            --muted: #6b7280;
-            --accent: #00A86B;
-        }
 
-        * {
-            box-sizing: border-box
-        }
-
-        body {
-            margin: 0;
-            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-            color: var(--text);
-            background: var(--bg);
-        }
-
-        header {
-            background: var(--card);
-            border-bottom: 1px solid #e5e7eb;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 24px;
-        }
-
-        .header-wrap {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            justify-content: space-between;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .brand img {
-            height: 56px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .brand h1 {
-            font-size: 18px;
-            margin: 0;
-            line-height: 1.2;
-        }
-
-        .actions {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .actions .btn-preview {
-            background: #111827;
-            color: #fff;
-            padding: 10px 16px;
-            border-radius: 10px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .actions button {
-            background: var(--accent);
-            color: #fff;
-            border: 0;
-            padding: 10px 16px;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        @media print {
-            .actions {
-                display: none;
-            }
-        }
-
-        main .hero {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: flex-start;
-            gap: 24px;
-            margin-top: 22px;
-        }
-
-        .card {
-            background: var(--card);
-            border: 1px solid #e5e7eb;
-            border-radius: 16px;
-            width: 100%;
-            padding: 20px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-        }
-
-        .badge {
-            display: inline-block;
-            font-size: 12px;
-            padding: 4px 8px;
-            border-radius: 999px;
-            background: #eef6ff;
-            color: #0b5cab;
-            font-weight: 600;
-        }
-
-        .muted {
-            color: var(--muted);
-            font-size: 14px
-        }
-
-        .incl {
-            margin-top: 10px;
-            font-size: 14px
-        }
-
-        .incl li {
-            margin: 6px 0
-        }
-
-        .sep {
-            height: 1px;
-            background: #e5e7eb;
-            margin: 16px 0
-        }
-
-        .footer {
-            color: var(--muted);
-            font-size: 13px;
-            text-align: center;
-            margin: 24px 0 40px;
-        }
-
-        .cta {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 10px;
-        }
-
-        .cta button {
-            background: #111827;
-            color: #fff;
-            border: 0;
-            padding: 10px 14px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        .cta .light {
-            background: #f3f4f6;
-            color: #111827;
-            text-decoration: none;
-            padding: 10px 14px;
-            border-radius: 10px;
-            font-weight: 600;
-            display: inline-block;
-        }
-
-        /* Seção do plano principal */
-        .plan-section {
-            background: linear-gradient(135deg, #f0fff7 0%, #ffffff 100%);
-            border: 2px solid #10b981;
-            border-radius: 16px;
-            padding: 32px;
-            margin: 32px 0;
-            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.15);
-        }
-
-        .plan-header {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .plan-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #111827;
-            margin: 0 0 8px 0;
-        }
-
-        .plan-subtitle {
-            color: #6b7280;
-            font-size: 1.1rem;
-            margin: 0;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin: 32px 0;
-        }
-
-        .pricing-card {
-            background: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 24px;
-            text-align: center;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .pricing-card.featured {
-            border: 2px solid #10b981;
-            background: linear-gradient(135deg, #f0fff7 0%, #ffffff 100%);
-        }
-
-        .payment-method {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #374151;
-            margin-bottom: 8px;
-        }
-
-        .setup-price {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #10b981;
-            margin: 8px 0;
-        }
-
-        .original-price {
-            text-decoration: line-through;
-            color: #9ca3af;
-            font-size: 1rem;
-            margin-right: 8px;
-        }
-
-        .discount-badge {
-            background: #dc2626;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-left: 8px;
-        }
-
-        .monthly-cost {
-            background: #f9fafb;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            padding: 16px;
-            margin: 16px 0;
-        }
-
-        .monthly-label {
-            font-size: 0.9rem;
-            color: #6b7280;
-            margin-bottom: 4px;
-        }
-
-        .monthly-price {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #111827;
-        }
-
-        .features-list {
-            text-align: left;
-            margin: 20px 0;
-        }
-
-        .features-list li {
-            margin: 8px 0;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .features-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #10b981;
-            font-weight: bold;
-        }
-
-        .comparison-table {
-            margin: 40px 0;
-            overflow-x: auto;
-        }
-
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-        }
-
-        .table th,
-        .table td {
-            padding: 16px;
-            text-align: center;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .table th {
-            background: #f8fafc;
-            font-weight: 600;
-            color: #374151;
-        }
-
-        .table .highlight {
-            background: #f0fff7;
-            font-weight: 600;
-        }
-
-        .savings {
-            color: #dc2626;
-            font-weight: 600;
-        }
-
-        /* Gráfico */
-        .chart-container {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            margin: 32px 0;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-        }
-
-        .chart-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #111827;
-            margin-bottom: 16px;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .plan-title {
-                font-size: 1.8rem;
-            }
-            
-            .container {
-                padding: 16px;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -405,9 +39,10 @@
                 <div class="badge">Resumo</div>
                 <h2 style="margin:10px 0 6px 0;">Escopo do Projeto</h2>
                 <p class="muted" style="margin-top:0">
-                    Desenvolvimento completo de e-commerce em Next.js com catálogo de produtos, sistema de busca e filtros avançados, 
-                    páginas de produto com especificações técnicas e compatibilidade, carrinho de compras integrado, 
-                    checkout otimizado, SEO on-page completo e integração com Google Analytics 4. 
+                    Desenvolvimento completo de e-commerce em Next.js com catálogo de produtos, sistema de busca e
+                    filtros avançados,
+                    páginas de produto com especificações técnicas e compatibilidade, carrinho de compras integrado,
+                    checkout otimizado, SEO on-page completo e integração com Google Analytics 4.
                     Sistema de frete integrado com APIs dos Correios, Melhor Envio e transportadoras parceiras.
                 </p>
                 <div class="sep"></div>
@@ -424,99 +59,219 @@
                 <ul class="incl">
                     <li><strong>Formas de pagamento:</strong> PIX, Boleto Bancário ou Cartão de Crédito</li>
                     <li><strong>Setup:</strong> Valor único pago no início do projeto</li>
-                    <li><strong>Mensalidade:</strong> R$ 2.290/mês fixo (inclui hospedagem, SSL, suporte e manutenção)</li>
+                    <!-- <li><strong>Mensalidade:</strong> R$ 2.290/mês fixo (inclui hospedagem, SSL, suporte e manutenção)
+                    </li> -->
                     <li><strong>Prazo de desenvolvimento:</strong> 30-45 dias úteis</li>
-                    <li><strong>Garantia:</strong> 90 dias para correções e ajustes</li>
-                    <li><strong>Suporte incluso:</strong> 10 horas/mês de suporte técnico</li>
+                    <li><strong>Garantia:</strong> 30 dias para correções e ajustes</li>
+                    <!-- <li><strong>Suporte incluso:</strong> 10 horas/mês de suporte técnico</li> -->
                 </ul>
             </div>
         </section>
 
-        <section class="plan-section">
-            <div class="plan-header">
-                <h2 class="plan-title">E-commerce Completo Amazon Conetores</h2>
-                <p class="plan-subtitle">Escolha a forma de pagamento e economize no setup inicial</p>
+        <section class="payment-section" style="padding: 40px 20px; background: #f9fafb;">
+            <div class="plan-header" style="text-align: center; margin-bottom: 32px;">
+                <h2 style="font-size: 28px; font-weight: 700; color: #111827;">
+                    🚀 E-commerce Completo com Conector ERP
+                </h2>
+                <p style="font-size: 16px; color: #4b5563;">
+                    Escolha a forma de pagamento mais vantajosa para iniciar seu projeto
+                </p>
             </div>
 
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="payment-method">💳 Cartão de Crédito</div>
-                    <div class="setup-price">R$ 7.000</div>
-                    <div class="monthly-cost">
-                        <div class="monthly-label">Mensalidade fixa</div>
-                        <div class="monthly-price">R$ 2.290/mês</div>
+            <div class="pricing-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; align-items: start;">
+
+                <!-- Cartão -->
+                <div class="pricing-card"
+                    style="background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; text-align: center;">
+                    <h3 style="font-size: 20px; font-weight: 700; color: #374151; margin-bottom: 12px;">💳 Cartão de
+                        Crédito</h3>
+                    <div style="font-size: 22px; font-weight: 700; color: #ef4444; margin-bottom: 12px;">R$ 7.000 Setup
                     </div>
-                    <ul class="features-list">
-                        <li>Parcelamento em até 12x</li>
-                        <li>Aprovação imediata</li>
-                        <li>Início do projeto em 24h</li>
+                    <!-- <div style="margin-bottom: 12px;">
+                        <div style="color: #6b7280;">Mensalidade fixa</div>
+                        <div style="font-size: 18px; font-weight: 600; color: #111827;">R$ 2.290/mês</div>
+                    </div> -->
+                    <ul style="list-style: none; padding: 0; text-align: left; font-size: 14px; color: #6b7280;">
+                        <li>✅ Parcelamento em até 12x</li>
+                        <li>✅ Aprovação imediata</li>
+                        <li>✅ Início do projeto em 24h</li>
                     </ul>
+                    <div style="font-size: 13px; color: #4b5563; margin-top: 8px;">Opção prática e rápida</div>
                 </div>
 
-                <div class="pricing-card">
-                    <div class="payment-method">🏦 Boleto Bancário</div>
-                    <div class="setup-price">
-                        <span class="original-price">R$ 7.000</span>
-                        R$ 6.300
-                        <span class="discount-badge">10% OFF</span>
+                <!-- Boleto -->
+                <div class="pricing-card"
+                    style="background: #f9fafb; border: 2px solid #3b82f6; border-radius: 12px; padding: 24px; text-align: center; box-shadow: 0 4px 8px rgba(59,130,246,0.15);">
+                    <h3 style="font-size: 20px; font-weight: 700; color: #1d4ed8; margin-bottom: 12px;">🏦 Boleto
+                        Bancário</h3>
+                    <div style="font-size: 22px; font-weight: 700; color: #1d4ed8; margin-bottom: 12px;">
+                        <span style="text-decoration: line-through; color: #9ca3af;">R$ 7.000</span><br>
+                        R$ 6.300 <span style="font-size:14px; color:#2563eb;">(-10% OFF)</span>
                     </div>
-                    <div class="monthly-cost">
-                        <div class="monthly-label">Mensalidade fixa</div>
-                        <div class="monthly-price">R$ 2.290/mês</div>
-                    </div>
-                    <ul class="features-list">
-                        <li>Economia de R$ 700</li>
-                        <li>Pagamento à vista</li>
-                        <li>Prazo de compensação: 1-3 dias</li>
+                    <!-- <div style="margin-bottom: 12px;">
+                        <div style="color: #1e40af;">Mensalidade fixa</div>
+                        <div style="font-size: 18px; font-weight: 600; color: #1d4ed8;">R$ 2.290/mês</div>
+                    </div> -->
+                    <ul
+                        style="list-style: none; padding: 0; text-align: left; font-size: 14px; color: #1e40af; font-weight: 500;">
+                        <li>✅ Economia imediata de R$ 700</li>
+                        <li>✅ Pagamento à vista</li>
+                        <li>✅ Início rápido após compensação</li>
                     </ul>
+                    <div style="font-size: 13px; color: #1d4ed8; margin-top: 8px;">Opção com desconto no setup</div>
                 </div>
 
-                <div class="pricing-card featured">
-                    <div class="payment-method">⚡ PIX</div>
-                    <div class="setup-price">
-                        <span class="original-price">R$ 7.000</span>
-                        R$ 5.600
-                        <span class="discount-badge">20% OFF</span>
+                <!-- PIX - Destaque -->
+                <div class="pricing-card featured"
+                    style="background: #ecfdf5; border: 2px solid #10b981; border-radius: 12px; padding: 24px; text-align: center; box-shadow: 0 4px 12px rgba(16,185,129,0.25);">
+                    <h3 style="font-size: 20px; font-weight: 700; color: #065f46; margin-bottom: 12px;">⚡ PIX
+                        (Recomendado)</h3>
+                    <div style="font-size: 22px; font-weight: 700; color: #065f46; margin-bottom: 12px;">
+                        <span style="text-decoration: line-through; color: #9ca3af;">R$ 7.000</span><br>
+                        R$ 5.600 <span style="font-size:14px; color:#10b981;">(-20% OFF)</span>
                     </div>
-                    <div class="monthly-cost">
-                        <div class="monthly-label">Mensalidade fixa</div>
-                        <div class="monthly-price">R$ 2.290/mês</div>
-                    </div>
-                    <ul class="features-list">
-                        <li>Maior economia: R$ 1.400</li>
-                        <li>Compensação instantânea</li>
-                        <li>Início imediato do projeto</li>
-                        <li>Opção mais vantajosa</li>
+                    <!-- <div style="margin-bottom: 12px;">
+                        <div style="color: #065f46;">Mensalidade fixa</div>
+                        <div style="font-size: 18px; font-weight: 700; color: #065f46;">R$ 2.290/mês</div>
+                    </div> -->
+                    <ul
+                        style="list-style: none; padding: 0; text-align: left; font-size: 14px; color: #065f46; font-weight: 500;">
+                        <li>✅ Economia de R$ 1.400 no setup</li>
+                        <li>✅ Compensação imediata</li>
+                        <li>✅ Projeto começa no mesmo dia</li>
+                        <li><strong>💡 Melhor custo-benefício</strong></li>
                     </ul>
+                    <div style="font-size: 13px; color: #065f46; font-weight: 500; margin-top: 8px;">Opção mais
+                        vantajosa</div>
                 </div>
             </div>
 
-            <div style="background: #f9fafb; border-radius: 8px; padding: 20px; margin-top: 24px;">
-                <h3 style="margin: 0 0 12px 0; color: #374151;">✅ O que está incluído em todos os planos:</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
+            <!-- Benefícios incluídos -->
+            <div
+                style="background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-top: 32px;">
+                <h3 style="margin: 0 0 16px 0; color: #111827; font-size: 20px; font-weight: 700;">
+                    ✅ O que você leva em qualquer forma de pagamento:
+                </h3>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; font-size: 14px; color: #374151;">
                     <ul style="margin: 0; padding-left: 20px;">
-                        <li>Desenvolvimento completo do e-commerce</li>
+                        <li>Desenvolvimento completo e personalizado</li>
                         <li>Design responsivo e moderno</li>
-                        <li>Painel administrativo completo</li>
-                        <li>Integração com sistemas de pagamento</li>
+                        <li>Painel administrativo intuitivo</li>
+                        <li>Integração com meios de pagamento</li>
                     </ul>
                     <ul style="margin: 0; padding-left: 20px;">
-                        <li>Sistema de frete automatizado</li>
-                        <li>SEO otimizado para Google</li>
-                        <li>Hospedagem premium incluída</li>
-                        <li>SSL e segurança avançada</li>
-                    </ul>
-                    <ul style="margin: 0; padding-left: 20px;">
-                        <li>Suporte técnico 10h/mês</li>
-                        <li>Backups automáticos diários</li>
+                        <li>Frete automatizado e integrado</li>
+                        <li>SEO avançado para ranquear no Google</li>
+                        <li>Hospedagem premium + SSL de segurança</li>
                         <li>Monitoramento 24/7</li>
+                    </ul>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Suporte técnico especializado</li>
+                        <li>Backups automáticos diários</li>
                         <li>Atualizações de segurança</li>
+                        <li>Consultoria estratégica de vendas</li>
                     </ul>
                 </div>
             </div>
+
+            <!-- CTA -->
+            <!-- <div style="text-align: center; margin-top: 32px;">
+                <a href="#contato"
+                    style="background: #10b981; color: #fff; padding: 14px 28px; border-radius: 8px; font-size: 16px; font-weight: 600; text-decoration: none; display: inline-block; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s;">
+                    Quero Começar Agora 🚀
+                </a>
+            </div> -->
         </section>
 
-        <section class="comparison-table" id="comparison">
+
+        <section class="plans-section" style="padding: 40px 20px; background: #f9fafb;">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h2 style="font-size: 28px; font-weight: 700; color: #111827;">📦 Planos de E-commerce e ROI Estimado
+                </h2>
+                <p style="color: #4b5563; font-size: 16px;">Do básico ao completo: escolha o plano que mais potencializa
+                    suas vendas</p>
+            </div>
+
+            <div class="plans-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; align-items: start;">
+
+                <!-- Plano Básico -->
+                <div class="plan-card"
+                    style="background: #fff; border-radius: 12px; padding: 24px; text-align: center; border: 1px solid #e5e7eb; position: relative;">
+                    <h3 style="font-size: 20px; font-weight: 700; color: #374151; margin-bottom: 12px;">💻 Básico</h3>
+                    <div style="font-size: 22px; font-weight: 700; color: #ef4444; margin-bottom: 12px;">R$ 890/mês
+                    </div>
+                    <ul
+                        style="list-style: none; padding: 0; text-align: left; font-size: 14px; color: #6b7280; margin-bottom: 16px;">
+                        <li>✅ Hospedagem Completa</li>
+                        <li>✅ Integração ERP</li>
+                        <li>❌ Sem suporte incluso</li>
+                        <li>❌ Sem relatórios ou melhorias</li>
+                        <li>❌ Sem novas funcionalidades</li>
+                    </ul>
+                    <!-- <div style="font-size: 13px; color: #4b5563;">ROI potencial: +10% em vendas</div> -->
+
+                    <div
+                        style="position: absolute; right: -30px; top: 50%; transform: translateY(-50%); font-size: 32px; color: #6b7280;">
+                        ➡️</div>
+                </div>
+
+                <!-- Plano Intermediário -->
+                <div class="plan-card"
+                    style="background: #f0f9ff; border: 2px solid #3b82f6; border-radius: 12px; padding: 24px; text-align: center; box-shadow: 0 4px 8px rgba(59,130,246,0.2); position: relative;">
+                    <h3 style="font-size: 20px; font-weight: 700; color: #1d4ed8; margin-bottom: 12px;">⚙️ Intermediário
+                    </h3>
+                    <div style="font-size: 22px; font-weight: 700; color: #1d4ed8; margin-bottom: 12px;">R$ 1.290/mês
+                        <span style="font-size:14px; color:#2563eb;">(+5% OFF no Setup)</span>
+                    </div>
+                    <ul
+                        style="list-style: none; padding: 0; text-align: left; font-size: 14px; color: #1e40af; font-weight: 500; margin-bottom: 16px;">
+                        <li>✅ Hospedagem Completa</li>
+                        <li>✅ Suporte técnico básico (5h/mês)</li>
+                        <li>✅ Integração com gateways de pagamento</li>
+                        <li>❌ Sem relatórios detalhados</li>
+                        <li>❌ Melhorias contínuas limitadas</li>
+                    </ul>
+                    <!-- <div style="font-size: 13px; color: #1e40af;">ROI potencial: +25% em vendas</div> -->
+
+                    <div
+                        style="position: absolute; right: -30px; top: 50%; transform: translateY(-50%); font-size: 32px; color: #6b7280;">
+                        ➡️</div>
+                </div>
+
+                <!-- Plano Premium -->
+                <div class="plan-card featured"
+                    style="background: #ecfdf5; border: 2px solid #10b981; border-radius: 12px; padding: 24px; text-align: center; box-shadow: 0 4px 12px rgba(16,185,129,0.25);">
+                    <h3 style="font-size: 20px; font-weight: 700; color: #065f46; margin-bottom: 12px;">🚀 Premium
+                        Completo</h3>
+                    <div style="font-size: 22px; font-weight: 700; color: #065f46; margin-bottom: 12px;">R$ 1.590/mês
+                        <span style="font-size:14px; color:#10b981;">(+15% OFF no Setup)</span>
+                    </div>
+                    <ul
+                        style="list-style: none; padding: 0; text-align: left; font-size: 14px; color: #065f46; font-weight: 500; margin-bottom: 16px;">
+                        <li>✅ Hospedagem premium + monitoramento 24/7</li>
+                        <li>✅ Suporte técnico avançado (10h/mês)</li>
+                        <li>✅ Relatórios completos e dashboards</li>
+                        <li>✅ Melhorias contínuas + novas funcionalidades</li>
+                        <li>✅ Integração ERP + automações de marketing</li>
+                        <li>✅ CRM Customizados para setor de Vendas</li>
+                        <li>✅ Descontos Especiais nas Soluções extras: app conferência, busca por imagem, app agendamento</li>
+                        <li>✅ Descontos nas Soluções com IA: chatbots, agentes de IA, recomendação de produtos</li>
+                    </ul>
+                    <!-- <div style="font-size: 13px; color: #065f46; font-weight: 500;">ROI potencial: +50% a +80% em
+                        vendas, mais eficiência e escalabilidade</div> -->
+                </div>
+            </div>
+
+          
+        </section>
+
+
+
+
+        <!-- <section class="comparison-table" id="comparison">
             <h2 style="text-align: center; margin-bottom: 24px;">Comparativo de Economia por Forma de Pagamento</h2>
             <table class="table">
                 <thead>
@@ -561,52 +316,222 @@
         <section class="chart-container" id="chart">
             <h2 class="chart-title">📊 Economia Acumulada por Forma de Pagamento</h2>
             <canvas id="economyChart" style="width: 100%; height: 400px;"></canvas>
-        </section>
+        </section> -->
 
         <section class="card" style="margin-top: 32px;">
-            <div class="badge">Detalhamento dos Custos Mensais</div>
-            <h3 style="margin: 16px 0 12px 0;">Por que a mensalidade é fixa em R$ 2.290?</h3>
+            <div class="badge">Investimento Mensal</div>
+            <h3 style="margin: 16px 0 12px 0;">Por que a mensalidade?</h3>
             <p class="muted">
-                A mensalidade cobre todos os custos operacionais e de infraestrutura necessários para manter 
-                seu e-commerce funcionando perfeitamente:
+                Mais do que cobrir custos técnicos, esta mensalidade garante que seu e-commerce
+                opere com <strong>alta performance, segurança e inteligência de mercado</strong>.
+                É um investimento contínuo para que sua loja online não apenas funcione,
+                mas evolua e aumente suas vendas mês após mês.
             </p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 20px 0;">
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 20px 0;">
+                <!-- Infraestrutura -->
                 <div style="background: #f9fafb; padding: 16px; border-radius: 8px;">
-                    <h4 style="margin: 0 0 8px 0; color: #374151;">🖥️ Infraestrutura</h4>
+                    <h4 style="margin: 0 0 8px 0; color: #374151;">🖥️ Infraestrutura Premium</h4>
                     <ul style="margin: 8px 0; font-size: 14px; color: #6b7280;">
-                        <li>Hospedagem VPS Premium: R$ 180/mês</li>
-                        <li>Banco de dados gerenciado: R$ 60/mês</li>
-                        <li>CDN e otimização: R$ 40/mês</li>
-                        <li>SSL e segurança: R$ 15/mês</li>
-                        <li>Backups e monitoramento: R$ 30/mês</li>
+                        <li>Hospedagem VPS de alto desempenho</li>
+                        <li>Banco de dados rápido e seguro</li>
+                        <li>CDN para velocidade e alcance nacional</li>
+                        <li>SSL e camadas extras de segurança</li>
+                        <li>Backups automáticos e monitoramento 24/7</li>
                     </ul>
+                    <p style="font-size: 12px; color: #4b5563; margin-top: 8px;">
+                        Garantia de disponibilidade e estabilidade mesmo em picos de acessos.
+                    </p>
                 </div>
-                
+
+                <!-- Suporte + Inteligência -->
                 <div style="background: #f9fafb; padding: 16px; border-radius: 8px;">
-                    <h4 style="margin: 0 0 8px 0; color: #374151;">🛠️ Suporte e Manutenção</h4>
+                    <h4 style="margin: 0 0 8px 0; color: #374151;">🤝 Suporte & Inteligência</h4>
                     <ul style="margin: 8px 0; font-size: 14px; color: #6b7280;">
-                        <li>Suporte técnico especializado: 10h/mês</li>
-                        <li>Atualizações de segurança</li>
-                        <li>Manutenção preventiva</li>
-                        <li>Monitoramento 24/7</li>
-                        <li>Correções e melhorias</li>
+                        <li>Suporte técnico especializado dedicado</li>
+                        <li>Manutenções preventivas e corretivas</li>
+                        <li>Consultoria em melhorias contínuas</li>
+                        <li>Integração fluida com ERP</li>
+                        <li>Insights para potencializar vendas</li>
                     </ul>
+                    <p style="font-size: 12px; color: #4b5563; margin-top: 8px;">
+                        Mais do que manter o sistema no ar: ajudamos sua empresa a vender mais.
+                    </p>
                 </div>
-                
+
+                <!-- Valor Estratégico -->
                 <div style="background: #f0fff7; padding: 16px; border-radius: 8px; border: 1px solid #bbf7d0;">
-                    <h4 style="margin: 0 0 8px 0; color: #065f46;">💰 Valor Total</h4>
-                    <div style="font-size: 18px; font-weight: 700; color: #065f46;">R$ 2.290/mês</div>
-                    <p style="margin: 8px 0 0 0; font-size: 12px; color: #6b7280;">
-                        Inclui margem para sustentabilidade do serviço e investimentos em melhorias contínuas
+                    <h4 style="margin: 0 0 8px 0; color: #065f46;">🚀 Retorno Estratégico</h4>
+                    <!-- <div style="font-size: 18px; font-weight: 700; color: #065f46;">R$ 2.290/mês</div> -->
+                    <p style="margin: 8px 0 0 0; font-size: 13px; color: #065f46; font-weight: 500;">
+                        Investimento que transforma seu e-commerce em um <br>
+                        <strong>canal de vendas escalável e lucrativo</strong>.
+                    </p>
+                    <p style="margin: 6px 0 0 0; font-size: 12px; color: #6b7280;">
+                        Inclui infraestrutura, suporte especializado e inteligência comercial
+                        para evolução contínua do seu negócio.
                     </p>
                 </div>
             </div>
         </section>
 
+        <section class="card" style="margin-top: 32px;">
+            <div class="badge">Cronograma de Desenvolvimento</div>
+            <h3 style="margin: 16px 0 12px 0;">E-commerce com Integração ao ERP</h3>
+            <p class="muted">
+                O projeto será desenvolvido em <strong>30 a 45 dias úteis</strong>, dividido em etapas bem definidas
+                para garantir a qualidade e a integração completa do sistema.
+            </p>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 20px 0;">
+
+                <!-- Etapa 1 -->
+                <div style="background: #f9fafb; padding: 16px; border-radius: 8px;">
+                    <h4 style="margin: 0 0 8px 0; color: #374151;">📋 Planejamento (5 dias)</h4>
+                    <ul style="margin: 8px 0; font-size: 14px; color: #6b7280;">
+                        <li>Reunião inicial e levantamento de requisitos</li>
+                        <li>Definição do escopo do projeto</li>
+                        <li>Planejamento de arquitetura do sistema</li>
+                    </ul>
+                </div>
+
+                <!-- Etapa 2 -->
+                <div style="background: #f9fafb; padding: 16px; border-radius: 8px;">
+                    <h4 style="margin: 0 0 8px 0; color: #374151;">🎨 Design (5-7 dias)</h4>
+                    <ul style="margin: 8px 0; font-size: 14px; color: #6b7280;">
+                        <li>Criação do layout responsivo</li>
+                        <li>Design da experiência do usuário (UX/UI)</li>
+                        <li>Validação com o cliente</li>
+                    </ul>
+                </div>
+
+                <!-- Etapa 3 -->
+                <div style="background: #f9fafb; padding: 16px; border-radius: 8px;">
+                    <h4 style="margin: 0 0 8px 0; color: #374151;">💻 Desenvolvimento (15-20 dias)</h4>
+                    <ul style="margin: 8px 0; font-size: 14px; color: #6b7280;">
+                        <li>Implementação das páginas do e-commerce</li>
+                        <li>Cadastro de produtos e categorias</li>
+                        <li>Configuração de meios de pagamento</li>
+                    </ul>
+                </div>
+
+                <!-- Etapa 4 -->
+                <div style="background: #f9fafb; padding: 16px; border-radius: 8px;">
+                    <h4 style="margin: 0 0 8px 0; color: #374151;">🔗 Integração com ERP (5-7 dias)</h4>
+                    <ul style="margin: 8px 0; font-size: 14px; color: #6b7280;">
+                        <li>Integração de pedidos e estoque</li>
+                        <li>Sincronização de clientes e notas fiscais</li>
+                        <li>Testes de comunicação entre sistemas</li>
+                    </ul>
+                </div>
+
+                <!-- Etapa 5 -->
+                <div style="background: #f0f9ff; padding: 16px; border-radius: 8px; border: 1px solid #bfdbfe;">
+                    <h4 style="margin: 0 0 8px 0; color: #1e3a8a;">✅ Testes e Go-Live (5-6 dias)</h4>
+                    <ul style="margin: 8px 0; font-size: 14px; color: #1e40af;">
+                        <li>Testes de usabilidade e desempenho</li>
+                        <li>Correções finais e ajustes</li>
+                        <li>Publicação do e-commerce</li>
+                        <li>Treinamento para utilização do sistema</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div style="background: #f0fff7; padding: 16px; border-radius: 8px; border: 1px solid #bbf7d0;">
+                <h4 style="margin: 0 0 8px 0; color: #065f46;">⏱️ Prazo Total</h4>
+                <div style="font-size: 18px; font-weight: 700; color: #065f46;">30 a 45 dias úteis</div>
+                <p style="margin: 8px 0 0 0; font-size: 12px; color: #6b7280;">
+                    O prazo pode variar conforme ajustes solicitados durante o desenvolvimento.
+                </p>
+            </div>
+        </section>
+        <section class="card" style="margin-top: 32px;">
+            <div class="badge">ROI e Estratégia Digital</div>
+            <h3 style="margin: 16px 0 12px 0;">Impacto do E-commerce no Crescimento</h3>
+            <p class="muted">
+                O e-commerce brasileiro movimentou <strong>R$ 185 bilhões em 2023</strong> (Fonte: Neotrust)
+                e a expectativa é de crescimento médio anual de <strong>+15% até 2026</strong>.
+                Empresas que ainda não possuem loja online tendem a perder competitividade.
+                Com a implementação do e-commerce integrado ao ERP, é possível aumentar o faturamento
+                em até <strong>30–50% no primeiro ano</strong>.
+            </p>
+
+            <!-- Gráfico de Setas -->
+            <div style="display: flex; flex-direction: column; gap: 12px; margin: 24px 0;">
+
+                <div style="display: flex; align-items: center;">
+                    <div
+                        style="flex: 1; background: #fef2f2; padding: 12px; border-radius: 8px; border: 1px solid #fecaca;">
+                        <strong style="color: #b91c1c;">📉 Antes</strong>
+                        <p style="margin: 4px 0; font-size: 14px; color: #6b7280;">
+                            Baixa presença digital, vendas limitadas ao canal físico.
+                        </p>
+                    </div>
+                    <div style="margin: 0 12px; font-size: 28px; color: #6b7280;">➡️</div>
+                    <div
+                        style="flex: 1; background: #ecfdf5; padding: 12px; border-radius: 8px; border: 1px solid #bbf7d0;">
+                        <strong style="color: #047857;">📈 Depois</strong>
+                        <p style="margin: 4px 0; font-size: 14px; color: #065f46;">
+                            Aumento de 70% na exposição de marca e 30–50% no faturamento.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="display: flex; align-items: center;">
+                    <div
+                        style="flex: 1; background: #fef2f2; padding: 12px; border-radius: 8px; border: 1px solid #fecaca;">
+                        <strong style="color: #b91c1c;">👥 Alcance</strong>
+                        <p style="margin: 4px 0; font-size: 14px; color: #6b7280;">
+                            Limitado a clientes locais e conhecidos.
+                        </p>
+                    </div>
+                    <div style="margin: 0 12px; font-size: 28px; color: #6b7280;">➡️</div>
+                    <div
+                        style="flex: 1; background: #ecfdf5; padding: 12px; border-radius: 8px; border: 1px solid #bbf7d0;">
+                        <strong style="color: #047857;">🌎 Expansão</strong>
+                        <p style="margin: 4px 0; font-size: 14px; color: #065f46;">
+                            Visibilidade nacional, novos clientes e vendas 24/7.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Estratégias de Marketing -->
+            <div style="background: #f0f9ff; padding: 16px; border-radius: 8px; border: 1px solid #bfdbfe;">
+                <h4 style="margin: 0 0 8px 0; color: #1e3a8a;">🚀 Estratégias para Maximizar o ROI</h4>
+                <ul style="margin: 8px 0; font-size: 14px; color: #1e40af;">
+                    <li><strong>SEO e Google Ads:</strong> aumentar tráfego qualificado com palavras-chave estratégicas.
+                    </li>
+                    <li><strong>Social Commerce:</strong> integração com Instagram, TikTok e WhatsApp Business.</li>
+                    <li><strong>Email e Remarketing:</strong> recuperar carrinhos abandonados e fidelizar clientes.</li>
+                    <li><strong>Data Analytics:</strong> acompanhar métricas de conversão, ticket médio e LTV.</li>
+                    <li><strong>Campanhas segmentadas:</strong> promoções sazonais e ofertas personalizadas.</li>
+                </ul>
+            </div>
+
+            <!-- ROI Final -->
+            <div
+                style="background: #f0fff7; padding: 16px; border-radius: 8px; border: 1px solid #bbf7d0; margin-top: 20px;">
+                <h4 style="margin: 0 0 8px 0; color: #065f46;">📊 Retorno Estimado</h4>
+                <div style="font-size: 18px; font-weight: 700; color: #065f46;">Payback em 6–12 meses</div>
+                <p style="margin: 8px 0 0 0; font-size: 12px; color: #6b7280;">
+                    Combinando tecnologia + marketing digital, o e-commerce pode escalar faturamento e gerar ROI
+                    sustentável para a empresa.
+                </p>
+            </div>
+        </section>
+
+
+
+
+
         <div class="footer">
-            © T4 Tecnologia Ltda. — Esta proposta é válida por 15 dias. A mensalidade permanece fixa independente 
-            da forma de pagamento escolhida para o setup. Sujeita a ajustes conforme integrações específicas e 
+            © T4 Tecnologia Ltda. — Esta proposta é válida por 15 dias. A mensalidade permanece fixa independente
+            da forma de pagamento escolhida para o setup. Sujeita a ajustes conforme integrações específicas e
             volumetria de tráfego.
         </div>
     </main>
@@ -618,7 +543,7 @@
         function scrollToComparison() {
             document.getElementById('comparison').scrollIntoView({ behavior: 'smooth' });
         }
-        
+
         function scrollToChart() {
             document.getElementById('chart').scrollIntoView({ behavior: 'smooth' });
         }
@@ -660,9 +585,9 @@
                     },
                     tooltip: {
                         callbacks: {
-                            label: function(context) {
-                                return context.dataset.label + ': R$ ' + 
-                                       context.raw.toLocaleString('pt-BR', {minimumFractionDigits: 0});
+                            label: function (context) {
+                                return context.dataset.label + ': R$ ' +
+                                    context.raw.toLocaleString('pt-BR', { minimumFractionDigits: 0 });
                             }
                         }
                     }
@@ -675,7 +600,7 @@
                             text: 'Valor (R$)'
                         },
                         ticks: {
-                            callback: function(value) {
+                            callback: function (value) {
                                 return 'R$ ' + value.toLocaleString('pt-BR');
                             }
                         }
@@ -689,7 +614,41 @@
                 }
             }
         });
+
+
+        <!-- Chart.js -->
+        const ctx2 = document.getElementById('roiChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['Exposição', 'Vendas'],
+                datasets: [
+                    {
+                        label: 'Antes do E-commerce',
+                        data: [100, 100], // base
+                        backgroundColor: 'rgba(239, 68, 68, 0.6)', // vermelho
+                        borderColor: 'rgb(220, 38, 38)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Após E-commerce',
+                        data: [170, 150], // +70% exposição, +50% vendas
+                        backgroundColor: 'rgba(16, 185, 129, 0.6)', // verde
+                        borderColor: 'rgb(5, 150, 105)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </body>
 
 </html>
